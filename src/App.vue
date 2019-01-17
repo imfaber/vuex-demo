@@ -6,11 +6,13 @@
 
 <script>
 import ParentComponent from './components/ParentComponent.vue'
+import userModule from './store/user'
 
 export default {
   name: 'app',
   created(){
-    this.$store.dispatch('fetchUser')
+    this.$store.registerModule('user', userModule)
+    this.$store.dispatch('user/fetchUser')
   },
   components: {
     ParentComponent

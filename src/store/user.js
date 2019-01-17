@@ -1,24 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default {
+  namespaced: true,
   state: {
-    counter: 0,
     name: null,
     surname: null,
   },
   mutations: {
-    increment(state) {
-      state.counter++
-    },
-    decrement(state) {
-      state.counter--
-    },
-    setCounter(state, value) {
-      state.counter = value
-    },
     setUser(state, user) {
       state.name = user.name
       state.surname = user.surname
@@ -39,4 +25,4 @@ export default new Vuex.Store({
       return `${state.name} ${state.surname}`
     }
   }
-})
+}

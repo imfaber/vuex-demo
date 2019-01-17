@@ -19,6 +19,7 @@
 
 <script>
 import ChildComponent from "./ChildComponent.vue";
+import counterModule from "../store/counter";
 import { mapState, mapGetters } from "vuex";
 
 export default {
@@ -41,21 +42,26 @@ export default {
         };
     },
     computed: {
-        ...mapState(["counter"]),
-        ...mapGetters(["fullName"]),
+        ...mapState({
+            counter: state => state.counter.counter
+        }),
+        ...mapGetters({ fullName: "user/fullName" }),
         localCounter: {
             get() {
                 return this.counter;
             },
             set(value) {
-                this.$store.commit("setCounter", value);
+                this.$store.commit("counter/setCounter", value);
             }
         }
+    },
+    created() {
+        this.$store.registerModule("counter", counterModule);
     },
     methods: {
         changeUser() {
             this.$store.commit(
-                "setUser",
+                "user/setUser",
                 this.users[Math.floor(Math.random() * 3)]
             );
         }

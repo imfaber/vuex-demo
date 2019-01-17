@@ -23,14 +23,17 @@ export default {
     },
     methods: {
         increment() {
-            this.$store.commit("increment");
+            this.$store.commit("counter/increment");
         },
         decrement() {
-            this.$store.commit("decrement");
+            this.$store.commit("counter/decrement");
         }
     },
     computed: {
-        ...mapState(["counter", "name"]),
+        ...mapState({
+          counter: state => state.counter.counter, 
+          name: state => state.user.name
+        }),
         grandchildTitle() {
           return `${this.title}'s grandchild`
         }
