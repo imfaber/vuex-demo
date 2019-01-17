@@ -1,4 +1,5 @@
 # vuex-demo
+<<<<<<< HEAD
 
 ## Project setup
 ```
@@ -27,3 +28,6 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+A Vuex demo
+>>>>>>> 2127e75f395cbd15c2424837bffea6edd4e60142
